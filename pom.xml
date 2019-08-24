@@ -6,7 +6,7 @@
 	<artifactId>securitydemo</artifactId>
 	<version>${global.version}</version>
 	<packaging>pom</packaging>
-	<name>multiProjects</name>
+	<name>securitydemo</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -16,14 +16,25 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 
-		<spring.version>5.1.0.RELEASE</spring.version>
-		<spring.security.version>5.1.0.RELEASE</spring.security.version>
-		<spring.boot.version>2.0.5.RELEASE</spring.boot.version>
-		<hibernate.version>5.3.3.Final</hibernate.version>
-		<jackson.version>2.9.6</jackson.version>
-		<junit.version>5.2.0</junit.version>
-		<jetty.version>9.4.11.v20180605</jetty.version>
+		<spring.version>5.1.9.RELEASE</spring.version>
+		<spring.security.version>5.1.5.RELEASE</spring.security.version>
+		<spring.boot.version>2.1.6.RELEASE</spring.boot.version>
+		<spring.data.version>Lovelace-SR9</spring.data.version>
+		<hibernate.version>5.4.3.Final</hibernate.version>
+		<jackson.version>2.9.8</jackson.version>
+		<junit.version>5.4.2</junit.version>
+		<jetty.version>9.4.18.v20190429</jetty.version>
 	</properties>
+
+	<modules>
+		<module>01basic</module>
+		<module>02oauthserver</module>
+		<module>03resourceservere</module>
+		<module>04oauthserver</module>
+		<module>05resourceserver</module>
+		<module>06oauthclient</module>
+		<module>07oauthuser</module>
+	</modules>
 
 	<dependencyManagement>
 		<dependencies>
@@ -38,7 +49,7 @@
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-releasetrain</artifactId>
-				<version>Kay-SR9</version>
+				<version>${spring.data.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -123,12 +134,12 @@
 			<dependency>
 				<groupId>com.zaxxer</groupId>
 				<artifactId>HikariCP</artifactId>
-				<version>3.2.0</version>
+				<version>3.3.1</version>
 			</dependency>
 			<dependency>
 				<groupId>com.h2database</groupId>
 				<artifactId>h2</artifactId>
-				<version>1.4.197</version>
+				<version>1.4.199</version>
 			</dependency>
 			<dependency>
 				<groupId>mysql</groupId>
@@ -139,7 +150,7 @@
 			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
-				<version>1.18.2</version>
+				<version>1.18.8</version>
 				<scope>provided</scope>
 			</dependency>
 
@@ -159,6 +170,12 @@
 				<artifactId>mockito-core</artifactId>
 				<version>2.20.1</version>
 				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.security.oauth</groupId>
+				<artifactId>spring-security-oauth2</artifactId>
+				<version>2.3.6.RELEASE</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
